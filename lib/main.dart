@@ -1,9 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:firebase_core/firebase_core.dart';
 
-import 'package:flutter_pengajuan_cuti/pages/hk/c_page.dart';
-import 'package:flutter_pengajuan_cuti/pages/hk/home_kar.dart';
-import 'package:flutter_pengajuan_cuti/pages/hl/homepage.dart';
 import 'package:flutter_pengajuan_cuti/pages/karyawan/ajukan_cuti.dart';
 import 'package:flutter_pengajuan_cuti/pages/karyawan/karyawan.dart';
 import 'package:flutter_pengajuan_cuti/pages/log/login_page.dart';

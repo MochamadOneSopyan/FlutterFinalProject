@@ -99,7 +99,10 @@ class _HRDState extends State<HRD> {
                                 child: CircleAvatar(
                                     backgroundColor:
                                         Color.fromARGB(255, 93, 39, 165),
-                                    radius: 30),
+                                    radius: 35),
+                              ),
+                              SizedBox(
+                                height: 5,
                               ),
                               Text(
                                 // "Yans Piyan",

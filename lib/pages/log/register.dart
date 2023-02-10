@@ -85,7 +85,8 @@ class _RegisterState extends State<Register> {
                           decoration: InputDecoration(
                             filled: true,
                             fillColor: Colors.white,
-                            prefixIcon: Icon(Icons.person),
+                            prefixIcon: Icon(Icons.person,
+                                color: Color.fromARGB(255, 18, 131, 146)),
                             hintText: 'Username',
                             enabled: true,
                             contentPadding: const EdgeInsets.only(
@@ -117,7 +118,8 @@ class _RegisterState extends State<Register> {
                           decoration: InputDecoration(
                             filled: true,
                             fillColor: Colors.white,
-                            prefixIcon: Icon(Icons.email),
+                            prefixIcon: Icon(Icons.email,
+                                color: Color.fromARGB(255, 18, 131, 146)),
                             hintText: 'Email',
                             enabled: true,
                             contentPadding: const EdgeInsets.only(
@@ -164,7 +166,8 @@ class _RegisterState extends State<Register> {
                                 }),
                             filled: true,
                             fillColor: Colors.white,
-                            prefixIcon: Icon(Icons.lock),
+                            prefixIcon: Icon(Icons.lock,
+                                color: Color.fromARGB(255, 18, 131, 146)),
                             hintText: 'Password',
                             enabled: true,
                             contentPadding: const EdgeInsets.only(
@@ -209,7 +212,8 @@ class _RegisterState extends State<Register> {
                                 }),
                             filled: true,
                             fillColor: Colors.white,
-                            prefixIcon: Icon(Icons.lock),
+                            prefixIcon: Icon(Icons.lock,
+                                color: Color.fromARGB(255, 18, 131, 146)),
                             hintText: 'Confirm Password',
                             enabled: true,
                             contentPadding: const EdgeInsets.only(

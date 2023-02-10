@@ -4,8 +4,7 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter_pengajuan_cuti/pages/hrd/hrd.dart';
 import 'package:flutter_pengajuan_cuti/pages/karyawan/karyawan.dart';
 import 'package:flutter_svg/flutter_svg.dart';
-// import 'karyawan.dart';
-// import 'hrd.dart';
+
 import 'register.dart';
 
 class LoginPage extends StatefulWidget {
@@ -86,7 +85,12 @@ class _LoginPageState extends State<LoginPage> {
                               filled: true,
                               fillColor: Colors.white,
                               // labelText: "Email",
-                              prefixIcon: Icon(Icons.email),
+                              prefixIcon: Icon(
+                                Icons.email,
+                                color: Color.fromARGB(255, 18, 131, 146),
+                              ),
+
+                              // iconColor: Colors.red,
                               hintText: 'Email',
                               enabled: true,
                               contentPadding: const EdgeInsets.only(
@@ -135,7 +139,8 @@ class _LoginPageState extends State<LoginPage> {
                                   }),
                               filled: true,
                               fillColor: Colors.white,
-                              prefixIcon: Icon(Icons.lock),
+                              prefixIcon: Icon(Icons.lock,
+                                  color: Color.fromARGB(255, 18, 131, 146)),
                               hintText: 'Password',
                               enabled: true,
                               contentPadding: const EdgeInsets.only(

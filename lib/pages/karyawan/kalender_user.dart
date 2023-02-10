@@ -82,119 +82,124 @@ class _CalendarState extends State<Calendar> {
           ),
         ),
       ),
-      body: Container(
-        height: MediaQuery.of(context).size.height,
-        decoration: BoxDecoration(color: Colors.blueGrey),
-        child: Stack(
-          children: [
-            SizedBox(
-              height: 500,
-              width: MediaQuery.of(context).size.width,
-              child: Padding(
-                padding: const EdgeInsets.only(
-                  bottom: 24,
-                  left: 24,
-                  right: 24,
-                ),
-                child: Column(
-                  children: [
-                    TableCalendar(
-                      focusedDay: selectedDay,
-                      firstDay: DateTime(1990),
-                      lastDay: DateTime(2050),
-                      calendarFormat: format,
-                      onFormatChanged: (CalendarFormat _format) {
-                        setState(() {
-                          format = _format;
-                        });
-                      },
-                      startingDayOfWeek: StartingDayOfWeek.sunday,
-                      daysOfWeekVisible: true,
-
-                      //Day Changed
-                      onDaySelected: (DateTime selectDay, DateTime focusDay) {
-                        setState(() {
-                          selectedDay = selectDay;
-                          add1.text = selectDay.toString().substring(0, 10);
-                          print(selectedDay);
-                          focusedDay = focusDay;
-                        });
-                      },
-                      selectedDayPredicate: (DateTime date) {
-                        return isSameDay(selectedDay, date);
-                      },
-
-                      eventLoader: _getEventsfromDay,
-
-                      //To style the Calendar
-                      calendarStyle: CalendarStyle(
-                        defaultTextStyle: TextStyle(color: Colors.white),
-                        isTodayHighlighted: true,
-                        selectedDecoration: BoxDecoration(
-                          color: Colors.white,
-                          shape: BoxShape.rectangle,
-                          borderRadius: BorderRadius.circular(5.0),
-                        ),
-                        selectedTextStyle: TextStyle(color: Colors.black),
-                        todayDecoration: BoxDecoration(
-                          color: Color.fromARGB(255, 36, 82, 105),
-                          shape: BoxShape.rectangle,
-                          borderRadius: BorderRadius.circular(5.0),
-                        ),
-                        defaultDecoration: BoxDecoration(
-                          shape: BoxShape.rectangle,
-                          borderRadius: BorderRadius.circular(5.0),
-                        ),
-                        weekendDecoration: BoxDecoration(
-                          shape: BoxShape.rectangle,
-                          borderRadius: BorderRadius.circular(5.0),
-                        ),
-                        weekendTextStyle: TextStyle(
-                          fontFamily: 'Montserrat',
-                          color: Color.fromARGB(255, 212, 17, 17),
-                          height: 1.3333333333333333,
-                        ),
-                      ),
-                      calendarBuilders: CalendarBuilders(
-                        singleMarkerBuilder: (context, date, _) {
-                          return Container(
-                            decoration: BoxDecoration(
-                                shape: BoxShape.circle,
-                                color: Colors.black), //Change color
-                            width: 5.0,
-                            height: 5.0,
-                            margin: const EdgeInsets.symmetric(horizontal: 1.5),
-                          );
+      body: SingleChildScrollView(
+        physics: BouncingScrollPhysics(parent: AlwaysScrollableScrollPhysics()),
+        child: Container(
+          height: MediaQuery.of(context).size.height,
+          decoration: BoxDecoration(color: Color.fromARGB(255, 47, 110, 137)),
+          child: Stack(
+            children: [
+              SizedBox(
+                height: 500,
+                width: MediaQuery.of(context).size.width,
+                child: Padding(
+                  padding: const EdgeInsets.only(
+                    bottom: 24,
+                    left: 24,
+                    right: 24,
+                  ),
+                  child: Column(
+                    children: [
+                      TableCalendar(
+                        focusedDay: selectedDay,
+                        firstDay: DateTime(1990),
+                        lastDay: DateTime(2050),
+                        calendarFormat: format,
+                        onFormatChanged: (CalendarFormat _format) {
+                          setState(() {
+                            format = _format;
+                          });
                         },
-                      ),
-                      headerStyle: HeaderStyle(
-                        formatButtonVisible: false,
-                        titleCentered: true,
-                        formatButtonShowsNext: false,
-                        formatButtonDecoration: BoxDecoration(
-                          color: Colors.blue,
-                          borderRadius: BorderRadius.circular(5.0),
+                        startingDayOfWeek: StartingDayOfWeek.sunday,
+                        daysOfWeekVisible: true,
+
+                        //Day Changed
+                        onDaySelected: (DateTime selectDay, DateTime focusDay) {
+                          setState(() {
+                            selectedDay = selectDay;
+                            add1.text = selectDay.toString().substring(0, 10);
+                            print(selectedDay);
+                            focusedDay = focusDay;
+                          });
+                        },
+                        selectedDayPredicate: (DateTime date) {
+                          return isSameDay(selectedDay, date);
+                        },
+
+                        eventLoader: _getEventsfromDay,
+
+                        //To style the Calendar
+                        calendarStyle: CalendarStyle(
+                          defaultTextStyle:
+                              TextStyle(color: Color.fromARGB(255, 49, 2, 2)),
+                          isTodayHighlighted: true,
+                          selectedDecoration: BoxDecoration(
+                            color: Colors.white,
+                            shape: BoxShape.rectangle,
+                            borderRadius: BorderRadius.circular(5.0),
+                          ),
+                          selectedTextStyle: TextStyle(color: Colors.black),
+                          todayDecoration: BoxDecoration(
+                            color: Color.fromARGB(255, 36, 82, 105),
+                            shape: BoxShape.rectangle,
+                            borderRadius: BorderRadius.circular(5.0),
+                          ),
+                          defaultDecoration: BoxDecoration(
+                            shape: BoxShape.rectangle,
+                            borderRadius: BorderRadius.circular(5.0),
+                          ),
+                          weekendDecoration: BoxDecoration(
+                            shape: BoxShape.rectangle,
+                            borderRadius: BorderRadius.circular(5.0),
+                          ),
+                          weekendTextStyle: TextStyle(
+                            fontFamily: 'Montserrat',
+                            color: Color.fromARGB(255, 212, 17, 17),
+                            height: 1.3333333333333333,
+                          ),
                         ),
-                        titleTextStyle:
-                            TextStyle(fontSize: 14, color: Colors.white),
-                        formatButtonTextStyle: TextStyle(
-                          color: Colors.white,
+                        calendarBuilders: CalendarBuilders(
+                          singleMarkerBuilder: (context, date, _) {
+                            return Container(
+                              decoration: BoxDecoration(
+                                  shape: BoxShape.circle,
+                                  color: Colors.black), //Change color
+                              width: 5.0,
+                              height: 5.0,
+                              margin:
+                                  const EdgeInsets.symmetric(horizontal: 1.5),
+                            );
+                          },
+                        ),
+                        headerStyle: HeaderStyle(
+                          formatButtonVisible: false,
+                          titleCentered: true,
+                          formatButtonShowsNext: false,
+                          formatButtonDecoration: BoxDecoration(
+                            color: Colors.blue,
+                            borderRadius: BorderRadius.circular(5.0),
+                          ),
+                          titleTextStyle:
+                              TextStyle(fontSize: 14, color: Colors.white),
+                          formatButtonTextStyle: TextStyle(
+                            color: Color.fromARGB(255, 87, 252, 117),
+                          ),
                         ),
                       ),
-                    ),
-                    ..._getEventsfromDay(selectedDay).map(
-                      (Event event) => ListTile(
-                        title: Text(
-                          event.title,
-                          style: TextStyle(fontSize: 12),
+                      ..._getEventsfromDay(selectedDay).map(
+                        (Event event) => ListTile(
+                          title: Text(
+                            event.title,
+                            style: TextStyle(fontSize: 12),
+                          ),
                         ),
                       ),
-                    ),
-                  ],
+                    ],
+                  ),
                 ),
               ),
-            ),
-          ],
+            ],
+          ),
         ),
       ),
     );
